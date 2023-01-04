@@ -1,11 +1,11 @@
 import { useMemo } from "react";
 import "./styles.css";
 import { faker } from "@faker-js/faker";
-import Table from "./components/Table";
+import ClassicTable from "./components/ClassicTable";
 import { createColumnHelper } from "@tanstack/react-table";
-import TanTable from "./components/TanTable";
+import Table from "./components/Table";
 
-faker.seed(100);
+// faker.seed(10);
 
 function App() {
   const columns = useMemo(
@@ -30,12 +30,21 @@ function App() {
   const columns2 = [
     columnHelper.accessor("name", {
       header: "이름",
-      size: 100,
-      enableSorting: true,
-      sortingFn: "auto",
+      size: 150, // default
+      enableSorting: true, // default
+      enableColumnFilter: true, // default
+      sortingFn: "auto", // default
     }),
-    columnHelper.accessor("email", { header: "이메일" }),
-    columnHelper.accessor("phone", { header: "휴대폰", size: 200 }),
+    columnHelper.accessor("email", {
+      header: "이메일",
+      enableColumnFilter: false, // set
+    }),
+    columnHelper.accessor("phone", {
+      header: "휴대폰",
+      size: 200, // set
+      enableSorting: false, // set
+      enableColumnFilter: false, // set
+    }),
     // columnHelper.accessor("birth", { header: "생년월일" }),
     // columnHelper.accessor("register_date", { header: "등록일" }),
     // columnHelper.accessor("last_edit_date", { header: "최종수정일" }),
@@ -59,7 +68,7 @@ function App() {
 
   const data = useMemo(
     () =>
-      Array(53)
+      Array(15)
         .fill()
         .map(() => ({
           name: faker.name.lastName() + faker.name.firstName(),
@@ -71,8 +80,8 @@ function App() {
 
   return (
     <>
-      <Table columns={columns} data={data} />
-      <TanTable columns={columns2} data={data} />
+      <ClassicTable columns={columns} data={data} />
+      <Table columns={columns2} data={data} />
     </>
   );
 }
