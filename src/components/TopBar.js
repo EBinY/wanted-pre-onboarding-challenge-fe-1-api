@@ -4,12 +4,12 @@ import { useState, useMemo } from "react";
 // createContext로 입력된 todoItem을 TodoBoard로 전달해야함
 
 function TopBar() {
-  const [inputValue, setInputValue] = useState("");
-  const [todoList, setTodoList] = useState([]);
+  // const [inputValue, setInputValue] = useState("");
+  // const [todoList, setTodoList] = useState([]);
 
-  const addItem = () => {
-    setTodoList([...todoList, inputValue]);
-  };
+  // const addItem = () => {
+  //   setTodoList([...todoList, inputValue]);
+  // };
 
   return (
     <div>

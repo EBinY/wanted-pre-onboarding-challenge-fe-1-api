@@ -3,7 +3,7 @@ import TodoItem from "./TodoItem";
 function TodoBoard() {
   return (
     <div>
-      <h1>TodoBoard</h1>
+      <h1>TodoBoard Component</h1>
     </div>
   );
 }

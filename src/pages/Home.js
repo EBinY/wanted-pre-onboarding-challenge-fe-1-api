@@ -10,7 +10,7 @@ export const TodoContext = createContext({
 
 function Home() {
   // home에서 관리하고 props로 내려주는 방식으로 변경
-  // topbar 고민
+  // topbar 고민중,
   const [todoItem, setTodoItem] = useState("");
 
   return (
